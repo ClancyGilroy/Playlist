@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.io.*;
+import java.util.Collections;
 
 /**
  * The Playlist class, which will keep track of a playlist of Song objects
@@ -84,7 +84,10 @@ public class Playlist {
             }
         }
         Collections.sort(indexlist);
-        Collections.reverse(indexlist);  
-        //this method is not done 
+        Collections.reverse(indexlist);
+        for(int i = 0; i < indexlist.size(); i++){
+            int currentchop = indexlist.get(i);
+            playlist.remove(currentchop);
+        }
       }
 }
