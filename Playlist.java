@@ -34,4 +34,14 @@ public class Playlist {
       public void remove(int index){
         playlist.remove(index - 1);
       }
+      public ArrayList<String> examine(){
+        ArrayList<String> x = new ArrayList<>();
+        for(int i = 0; i < playlist.size(); i ++){
+            Song currentsong = playlist.get(i);
+            String currentname = currentsong.getname();
+            String currentartist = currentsong.getartist();
+            int currentlength = currentsong.getlength();
+            //this method is unfinished
+        }
+      }
 }
