@@ -42,8 +42,12 @@ public class Playlist {
             String currentname = currentsong.getname();
             String currentartist = currentsong.getartist();
             int currentlength = currentsong.getlength();
-            String currentformattedlength = "(" + currentlength / 60 + ":" + currentlength % 60 + ")";
+            boolean currentliked = currentsong.getliked();
+            String currentformattedlength = " (" + currentlength / 60 + ":" + currentlength % 60 + ")";
             String y = "\"" + currentname + "\" by " + currentartist + currentformattedlength;
+            if(currentliked){
+                y += " -- liked";
+            }
             x.add(y);
         }
         return x;
@@ -56,8 +60,11 @@ public class Playlist {
             String currentartist = currentsong.getartist();
             int currentlength = currentsong.getlength();
             boolean currentliked = currentsong.getliked();
-            String currentformattedlength = "(" + currentlength / 60 + ":" + currentlength % 60 + ")";
+            String currentformattedlength = " (" + currentlength / 60 + ":" + currentlength % 60 + ")";
             String y = "\"" + currentname + "\" by " + currentartist + currentformattedlength;
+            if(currentliked){
+                y += " -- liked";
+            }
             if(currentliked){
                 x.add(y);
             }
@@ -89,5 +96,9 @@ public class Playlist {
             int currentchop = indexlist.get(i);
             playlist.remove(currentchop);
         }
+      }
+      public void likepos(int x){
+        Song y = playlist.get(x-1);
+        y.like();
       }
 }

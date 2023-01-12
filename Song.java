@@ -14,11 +14,21 @@ public class Song {
      * Constructor-- what information needs to be given to make a Song?
      * How will you handle 'liked' songs? It makes sense for a Song not be 'liked' by default
      */
-    public Song(int mylength, String myname, String myartist){
+    public Song(String mylength, String myname, String myartist){
         liked = false;
-        length = mylength;
         name = myname;
         artist = myartist;
+        int colonindex = -1;
+        for(int i = 0; i < mylength.length(); i++){
+            if(mylength.substring(i, i+1).equals(":")){
+                colonindex = i;
+            }
+        }
+        String minstring = mylength.substring(0, colonindex);
+        int min = Integer.parseInt(minstring);
+        String secstring = mylength.substring(colonindex + 1);
+        int sec = Integer.parseInt(secstring);
+        length = min * 60 + sec;
     }
 
      /**
